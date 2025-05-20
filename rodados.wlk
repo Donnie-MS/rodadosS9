@@ -56,7 +56,6 @@ class Corsa {
 //const listaDeAuto = [new Corsa(color = "rojo")]
 // listaDeAuto.add(new Corsa(color = "rojo")) // otra instancia de la clase Corsa
 //const primerAuto = listaDeAuto.get(0) // get para lista
-//test
 class Kwid {
     var tieneTanqueAdicional
     method capacidad() = if(tieneTanqueAdicional) 3 else 4
@@ -112,10 +111,15 @@ class Dependencia {
     method agregarAFlota(unRodado) {flota.add(unRodado)}
     method quitarDeFlota(unRodado) {flota.remove(unRodado)}
     method pesoTotalFlota() = flota.sum({rodado => rodado.peso()})
-    method estaBienEquipada() = self.tieneAlMenos3Rodados() && self.todosLosRodadosPuedenIrA100()
-    method tamañoDeFlota() = flota.size()
-    method tieneAlMenos3Rodados() = self.tamañoDeFlota() >= 3
+    method estaBienEquipada() = self.tieneAlMenosRodados(3) && self.todosLosRodadosPuedenIrA100()
+    method cantRodados() = flota.size()
+    method tieneAlMenosRodados(cantidad) = self.cantRodados() >= cantidad
     method todosLosRodadosPuedenIrA100() = flota.all({rodado => rodado.velocidadMaxima() >= 100})
     method capacidadTotalEnColor(unColor) = self.rodadosDeColor(unColor).sum({rodado => rodado.capacidad()})
     method rodadosDeColor(unColor) = flota.filter({rodado => rodado.color() == unColor})
+    method colorDelRodadoMasRapido() = self.rodadoMasRapido().color()
+    method rodadoMasRapido() = flota.max({rodado => rodado.velocidadMaxima()})
+    method capacidadFaltante() = (self.empleados() - self.capacidadDeLaFlota()).max(0)
+    method capacidadDeLaFlota() = flota.sum({rodado => rodado.capacidad()})
+    method esGrande() = empleados >= 40 && self.tieneAlMenosRodados(5)
 }
