@@ -56,7 +56,7 @@ class Corsa {
 //const listaDeAuto = [new Corsa(color = "rojo")]
 // listaDeAuto.add(new Corsa(color = "rojo")) // otra instancia de la clase Corsa
 //const primerAuto = listaDeAuto.get(0) // get para lista
-
+//test
 class Kwid {
     var tieneTanqueAdicional
     method capacidad() = if(tieneTanqueAdicional) 3 else 4
@@ -115,5 +115,7 @@ class Dependencia {
     method estaBienEquipada() = self.tieneAlMenos3Rodados() && self.todosLosRodadosPuedenIrA100()
     method tamañoDeFlota() = flota.size()
     method tieneAlMenos3Rodados() = self.tamañoDeFlota() >= 3
-    method todosLosRodadosPuedenIrA100() = flota.all({rodado => rodado.velocidadMaxima() >= 100})  
+    method todosLosRodadosPuedenIrA100() = flota.all({rodado => rodado.velocidadMaxima() >= 100})
+    method capacidadTotalEnColor(unColor) = self.rodadosDeColor(unColor).sum({rodado => rodado.capacidad()})
+    method rodadosDeColor(unColor) = flota.filter({rodado => rodado.color() == unColor})
 }
