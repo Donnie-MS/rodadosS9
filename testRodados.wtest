@@ -20,8 +20,21 @@ describe "test de rodados" {
         trafic.interior(popular)
         trafic.motor(bataton)
     }
-    
-    test "description" {
-      
+
+    test "deportes tiene peso total 6450" {
+        assert.equals(6450, deportes.pesoTotalFlota())
+    }
+    test "cultura tiene peso total 10400" {
+        assert.equals(10400, cultura.pesoTotalFlota())
+    }
+    test "la flota de deportes esta bien equipada" {
+        assert.that(deportes.estaBienEquipada())
+    }
+
+    test "la flota cultura no esta bien equipada" {
+        assert.notThat(cultura.estaBienEquipada())
+    }
+    test "la capacidad total en color azul de deportes es 7" {
+        assert.equals(7, deportes.capacidadTotalEnColor("azul"))
     }
 }

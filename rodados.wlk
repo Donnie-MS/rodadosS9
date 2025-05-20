@@ -48,7 +48,7 @@ class Corsa {
     var property color// tiene que indicar en la consigna si viene inicializado o no(Informar si o si en el constructor)
     method capacidad() = 4
     method velocidadMaxima() = 150
-    method peso() = 130
+    method peso() = 1300
 }
 
 //new Corsa(color= "rojo")
