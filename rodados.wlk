@@ -1,3 +1,4 @@
+import wollok.game.*
 /*
 Flotas de rodados
 En este ejercicio vamos a construir un modelo que pueda servir para la administración de las flotas
@@ -46,6 +47,13 @@ object renaultKwid {
 
 class Corsa {
     var property color// tiene que indicar en la consigna si viene inicializado o no(Informar si o si en el constructor)
+    var position = new Position(x=4, y=7)
+    // game.at(0,0) cada vez que un objeto se va movimiendo tiene que ir apuntando a una nueva instancia
+    // es una instancia de una clase tiene dos atributos eje x e y
+    //para usar la clase positiion debe usarse import wollok.game.*
+    //var lista = [] // new List()
+    const pasoPor = []
+
     method capacidad() = 4
     method velocidadMaxima() = 150
     method peso() = 1300
@@ -57,7 +65,7 @@ class Corsa {
 // listaDeAuto.add(new Corsa(color = "rojo")) // otra instancia de la clase Corsa
 //const primerAuto = listaDeAuto.get(0) // get para lista
 class Kwid {
-    var tieneTanqueAdicional
+    var property tieneTanqueAdicional
     method capacidad() = if(tieneTanqueAdicional) 3 else 4
       //NO HACE FALTA HACER VAR SI YA CALCULA LA CAPACIDAD un metodo
     method velocidadMaxima() = if (tieneTanqueAdicional) 120 else 110
